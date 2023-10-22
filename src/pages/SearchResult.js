@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import styled from "styled-components"
 import Product from "../components/Product";
+import { publicRequest } from "../requestMethods";
 
 const Container=styled.div`
 padding: 20px;
@@ -21,8 +22,8 @@ function SearchResult(){
   useEffect(()=>{
     const getProducts=async ()=>{
       try{
-        const res=await axios.get(
-          `http://localhost:5000/api/search?searchQuery=${param}`
+        const res=await publicRequest.get(
+          `/search?searchQuery=${param}`
           
           );
           
